@@ -39,7 +39,7 @@
         setTimeout(function() {
           cntdwn = document.getElementById('countdown')
           cntdwn.innerHTML = i
-        }, ((3 - i) * 1000))
+        }, ((counter - i) * 1000))
       }
       setTimeout(function() {
         trgt = document.getElementById('target')
@@ -51,9 +51,14 @@
           trgt.innerHTML = "Time was " + diff
         }
         myTime = undefined
-      }, 3000)
+      }, counter*1000)
   
     }
+    function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+            }
   
   </script>
 </body>
