@@ -27,35 +27,33 @@
   React Now</button>
   
   <script> 
-  let myTime = undefined;
-  function recordReact() {
-    myTime = Date.now();
-    console.log(myTime);
-  }
-
-  function startTime() {
-    counter = getRandomInt(0, 11) // 11 is exclusive
-    for(let i = 0; i < counter; i++) {
-      setTimeout(function() {
-        cntdwn = document.getElementById('countdown')
-        cntdwn.innerHTML = i
-      }, ((counter - i) * 1000))
+    let myTime = undefined;
+    function recordReact() {
+      myTime = Date.now();
+      console.log(myTime);
     }
-    setTimeout(function() {
-      trgt = document.getElementById('target')
-      if(myTime === undefined) {
-        trgt.innerHTML = "Too Slow"
-      } else {
-        let buttonTime = Date.now();
-        let diff = buttonTime - myTime
-        trgt.innerHTML = "Time was " + diff
+  
+    function startTime() {
+      for(let i = 0; i < 4; i++) {
+        setTimeout(function() {
+          cntdwn = document.getElementById('countdown')
+          cntdwn.innerHTML = i
+        }, ((3 - i) * 1000))
       }
-      myTime = undefined
-    }, 3000)
-
-  }
-
- 
-</script>
+      setTimeout(function() {
+        trgt = document.getElementById('target')
+        if(myTime === undefined) {
+          trgt.innerHTML = "Too Slow"
+        } else {
+          let buttonTime = Date.now();
+          let diff = buttonTime - myTime
+          trgt.innerHTML = "Time was " + diff
+        }
+        myTime = undefined
+      }, 3000)
+  
+    }
+  
+  </script>
 </body>
 </html>
