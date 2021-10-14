@@ -63,12 +63,16 @@
     <script>
         let ids = ["img1", "img2", "img3", "img4", "img5", "img6", "img7", "img8", "img9", "img10", "img11", "img12", "img13", "img14", "img15", "img16", "img17", "img18", "img19", "img20", "img21", "img22", "img23", "img24"]
         let tiresCount = 0
-        position = 13
+        position = getRandomInt(0, 24) // 24 is exclusive
         function check(x){
             id = ids[x]
             imgElement = document.getElementById(id)
             if(x === position) {
                 imgElement.src = "reptile.jpg"
+                setTimeout(function(){
+                        resetGame()
+                    }, 3000)
+                    return
             } else{
                 imgElement.src = "spatial.jpg"
             }
@@ -89,6 +93,25 @@ function distance(clickPos, animalLocation) {
 
                 disTag = document.getElementById("distance")
                 disTag.innerHTML = "Distance is " + maxDis
+            }
+            function resetGame() {
+                position = getRandomInt(0, 24) // 24 is exclusive
+                tiresCount = 0
+                tiresTag = document.getElementById("tires")
+                triesTag.innerHTML = "Number of tires is " + tiresCount
+                disTag = document.getElementById("distance")
+                disTag.innerHTML = "Distance is 0" 
+
+                for(let i = 0; i <= 23; i++) {
+                    imgElement = document.getElementById(ids[i])
+                    imgElement.src = "tree.jpg"
+                }
+            }
+
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
             }
             
     </script>
