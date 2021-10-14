@@ -55,24 +55,6 @@
         document.getElementById('target').appendChild(element)
     }
 
-    function popItem() {
-        let stackItems = document.getElementsByClassName("stack")
-        let lenStack = stackItems.length
-        if(lenStack > 0) {
-            stackItems[lenStack-1].remove()
-        }
-    }
 
-    function zap() {
-        let stackItems = document.getElementsByClassName("stack")
-        let valu = document.getElementById('valu').value
-        idx = 0
-        for(let item of stackItems) {
-            if(item.innerHTML == valu) {
-                stackItems[idx].remove()
-            }
-            idx += 1
-        }
-    }
 </script>
 </html>
