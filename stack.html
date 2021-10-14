@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html> <head> <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+     .flex-container{
+         flex-direction:column;
+         background-color: green;
+      }
+    }
+</style>
+<title>Stack Ones</title>
+</head>
+
+
+
+<body>
+    <h2>Isaac builds a Stack</h2>
+    <label for="valu">Enter Text: </label>
+    <input type="text" id="valu"><br>
+
+        <div class="flex-container" id="target">
+          <div class="stack">row item 1</div>   
+          <div class="stack">row item 2</div>  
+          <div class="stack">row item 3</div>  
+        </div>
+    
+    <p> Press the button to create an new element of type div and then add it to the container.
+        </p>
+        <button onclick="makeNewDiv()">Push value</button>
+        <button onclick="popItem()">Pop</button>
+        <button onclick="zap()">Zap values</button>
+    
+    
+</body>
+<script>
+    function makeNewDiv(){
+        /* make the div and its text */
+        let element = document.createElement("div")
+        let valu = document.getElementById('valu').value
+        element.innerHTML = valu
+        element.className = "stack"
+        // element.style.color = "orange"
+
+        /* add it to the container */
+        document.getElementById('target').appendChild(element)
+    }
+
+    function popItem() {
+        let stackItems = document.getElementsByClassName("stack")
+        let lenStack = stackItems.length
+        if(lenStack > 0) {
+            stackItems[lenStack-1].remove()
+        }
+    }
+
+    function zap() {
+        let stackItems = document.getElementsByClassName("stack")
+        let valu = document.getElementById('valu').value
+        idx = 0
+        for(let item of stackItems) {
+            if(item.innerHTML == valu) {
+                stackItems[idx].remove()
+            }
+            idx += 1
+        }
+    }
+</script>
+</html>
