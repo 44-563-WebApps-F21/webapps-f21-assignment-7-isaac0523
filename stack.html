@@ -64,15 +64,20 @@
 
     function zap() {
         let stackItems = document.getElementsByClassName("stack")
-        let valu = document.getElementById('valu').value
-        idx = 0
+        let val = document.getElementById('val').value
+        index = 0
         for(let item of stackItems) {
-            if(item.innerHTML == valu) {
-                stackItems[idx].remove()
+            if(item.innerHTML == val) {
+                console.log(item)
+                setTimeout(function(){
+                    item.remove();
+                }, stackItems[index])
             }
-            idx += 1
+            index+=1
         }
+    }
 
-    }  
+
+     
 </script>
 </html>
