@@ -34,7 +34,8 @@
     }
   
     function startTime() {
-      for(let i = 0; i < 4; i++) {
+      counter = getRandomInt(0, 11) // 11 is exclusive
+      for(let i = 0; i < counter; i++) {
         setTimeout(function() {
           cntdwn = document.getElementById('countdown')
           cntdwn.innerHTML = i
